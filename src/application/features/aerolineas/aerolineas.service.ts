@@ -12,11 +12,13 @@ export class AerolineaService {
         ){}
 
     async create(aerolinea:Aerolinea): Promise<Aerolinea> {
-      return await  this._aerolinearpository.create(aerolinea);
+      return await  this._aerolinearpository.save(aerolinea);
     }
 
     async delete( id: number) {
-        await this._aerolinearpository.delete(id);
+        await this._aerolinearpository.delete({
+            id_de_aerolinea: id
+        });
     }
 
     async edit(id: number, aerolinea:Aerolinea){
