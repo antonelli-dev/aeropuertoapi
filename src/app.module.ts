@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AerolineasModule } from './application/features/aerolineas/aerolineas.module';
 import { Aerolinea } from './domain/entities/aerolineas.entity';
-import { PuestosModule } from './application/features/puestos/puestos.module';
 import { ConfigModule } from '@nestjs/config';
+import { PuestosModule } from './application/features/puestos/puestos.module';
 import { Puesto } from './domain/entities/puesto.entity';
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { Puesto } from './domain/entities/puesto.entity';
     database: process.env.DB_NAME,
     entities: [Aerolinea, Puesto],
     synchronize: true,
-  }), AerolineasModule, PuestosModule,],
+  }), AerolineasModule, PuestosModule],
   controllers: [AppController],
   providers: [AppService],
 })
