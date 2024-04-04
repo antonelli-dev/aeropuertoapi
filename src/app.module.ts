@@ -2,21 +2,24 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AerolineasController } from './application/features/aerolineas/aerolineas.controller';
 import { AerolineasModule } from './application/features/aerolineas/aerolineas.module';
-import { AerolineaService } from './application/features/aerolineas/aerolineas.service';
 import { Aerolinea } from './domain/entities/aerolineas.entity';
+import { PuestosModule } from './application/features/puestos/puestos.module';
+import { ConfigModule } from '@nestjs/config';
+import { Puesto } from './domain/entities/puesto.entity';
 @Module({
-  imports: [TypeOrmModule.forRoot({
+  imports: [
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'Ellanomeama1#',
-    database: 'aerolinea',
-    entities: [Aerolinea],
+    host: process.env.DB_HOST,
+    port: +process.env.DB_PORT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    entities: [Aerolinea, Puesto],
     synchronize: true,
-  }), AerolineasModule,],
+  }), AerolineasModule, PuestosModule,],
   controllers: [AppController],
   providers: [AppService],
 })
