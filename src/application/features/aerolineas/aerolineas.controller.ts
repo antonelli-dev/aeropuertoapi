@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { Aerolinea } from './aerolineas.entity'; // Assuming Aerolinea entity exists
+import { Aerolinea } from '../../../domain/entities/aerolineas.entity'; // Assuming Aerolinea entity exists
 import { AerolineaService } from './aerolineas.service'; // Assuming AerolineaService exists
 
 @Controller('aerolineas')

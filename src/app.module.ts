@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AerolineasController } from './features/aerolineas/aerolineas.controller';
-import { AerolineasModule } from './features/aerolineas/aerolineas.module';
-import { AerolineaService } from './features/aerolineas/aerolineas.service';
-import { Aerolinea } from './features/aerolineas/aerolineas.entity';
+import { AerolineasController } from './application/features/aerolineas/aerolineas.controller';
+import { AerolineasModule } from './application/features/aerolineas/aerolineas.module';
+import { AerolineaService } from './application/features/aerolineas/aerolineas.service';
+import { Aerolinea } from './domain/entities/aerolineas.entity';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'postgres',

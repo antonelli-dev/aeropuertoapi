@@ -1,8 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { Aerolinea } from "./aerolineas.entity";
+import { Aerolinea } from "../../../domain/entities/aerolineas.entity";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CrearAerolineaDto } from "../dtos/crear-aerolinea.dto";
 
 @Injectable()
 export class AerolineaService {
@@ -12,7 +11,7 @@ export class AerolineaService {
         private  _aerolinearpository: Repository<Aerolinea>
         ){}
 
-    async create(aerolinea:CrearAerolineaDto): Promise<Aerolinea> {
+    async create(aerolinea:Aerolinea): Promise<Aerolinea> {
       return await  this._aerolinearpository.create(aerolinea);
     }
 
@@ -20,7 +19,7 @@ export class AerolineaService {
         await this._aerolinearpository.delete(id);
     }
 
-    async edit(id: number, aerolinea:CrearAerolineaDto){
+    async edit(id: number, aerolinea:Aerolinea){
         await this._aerolinearpository.update(id,aerolinea);
         return aerolinea;
     }
