@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateAusenciaDto } from './dto/create-ausencia.dto';
 import { UpdateAusenciaDto } from './dto/update-ausencia.dto';
 import { Repository } from 'typeorm';
-import { Ausencia } from './entities/ausencia.entity';
+import { Ausencia } from '../../../domain/entities/ausencia.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()

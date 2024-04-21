@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AusenciasService } from './ausencias.service';
 import { AusenciasController } from './ausencias.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Ausencia } from './entities/ausencia.entity';
+import { Ausencia } from '../../../domain/entities/ausencia.entity';
 
 @Module({
   controllers: [AusenciasController],
