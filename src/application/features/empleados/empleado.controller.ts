@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { EmpleadosService } from "./empleado.service";
 import { CrearEmpleadoDto } from './dtos/crear-empleado.dto';
 import { ModificarEmpleadoDto } from './dtos/modificar-empleado.dto';
@@ -19,13 +19,13 @@ export class EmpleadosController {
         return await this._empleadosService.create(dto);
     }
 
-    @Put()
-    async modify(@Body() dto: ModificarEmpleadoDto) {
-        return await this._empleadosService.modify(dto);
-    }
+    @Put(":id")
+        async modify(@Param('id') id: number, @Body() dto: ModificarEmpleadoDto) {
+            return await this._empleadosService.modify(id, dto);
+        }
 
     @Delete(":id")
-    async remove(id: number) {
+    async remove(@Param('id') id: number) {
         return await this._empleadosService.delete(id);
     }
 }

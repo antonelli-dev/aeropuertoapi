@@ -26,7 +26,7 @@ export class EmpleadosService {
         return empleado;
     }
 
-    async modify(dto: ModificarEmpleadoDto):  Promise<Empleado> {
+    async modify(id: number, dto: ModificarEmpleadoDto):  Promise<Empleado> {
         const empleado: Empleado = dto as Empleado;
         await this._empleadosRepository.update(dto.id, empleado);
 
