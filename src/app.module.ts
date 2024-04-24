@@ -13,6 +13,8 @@ import { AusenciasModule } from './application/features/ausencias/ausencias.modu
 import { Ausencia } from './domain/entities/ausencia.entity';
 import { CapacitacionesModule } from './application/features/capacitaciones/capacitaciones.module';
 import { Capacitacion } from './domain/entities/capacitaciones.entity';
+import { Historialaboral } from './domain/entities/historialaboral.entity';
+import { HistorialaboralModule } from './application/features/historialaboral/historialaboral.module';
 
 @Module({
   imports: [
@@ -24,9 +26,9 @@ import { Capacitacion } from './domain/entities/capacitaciones.entity';
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [Aerolinea, Puesto, Empleado, Ausencia, Capacitacion],
+    entities: [Aerolinea, Puesto, Empleado, Ausencia, Capacitacion, Historialaboral],
     synchronize: true,
-  }), AerolineasModule, PuestosModule, EmpleadosModule, AusenciasModule, CapacitacionesModule],
+  }), AerolineasModule, PuestosModule, EmpleadosModule, AusenciasModule, CapacitacionesModule,HistorialaboralModule],
   controllers: [AppController],
   providers: [AppService],
 })

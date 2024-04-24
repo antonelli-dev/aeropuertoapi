@@ -40,6 +40,6 @@ export class Empleado {
     salario: number;
 
     @OneToOne(() => Aerolinea)
-    @JoinColumn()
+    @JoinColumn({ name: "aerolinea_id"})
     aerolinea: Aerolinea
 };
