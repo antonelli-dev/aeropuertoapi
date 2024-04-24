@@ -9,6 +9,7 @@ export class HistorialaboralController {
 
   @Post()
   async create(@Body() createHistorialaboralDto: CreateHistorialaboralDto) {
+    console.log(createHistorialaboralDto);
     return await this.historialaboralService.create(createHistorialaboralDto);
   }
 

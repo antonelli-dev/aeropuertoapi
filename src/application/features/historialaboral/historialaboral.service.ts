@@ -17,7 +17,8 @@ async getAll(): Promise<Historialaboral[]> {
 }
 
 async create(dto: CreateHistorialaboralDto):  Promise<Historialaboral> {
-    const historialaboral: Historialaboral = new Historialaboral();
+    const historialaboral: Historialaboral = dto as Historialaboral;
+    console.log("test",historialaboral);
     await this._historialaboralRepository.save(historialaboral);
 
 

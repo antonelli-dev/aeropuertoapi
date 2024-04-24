@@ -9,7 +9,7 @@ export class Historialaboral {
     @PrimaryGeneratedColumn("increment") 
     id_de_historial:number;
     @Column("date")
-    fecha_inicio: Date ;
+    fecha_inicio: string;
     @Column("integer")
     id_empleado: number;
     @Column("integer")
