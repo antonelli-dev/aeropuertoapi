@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Aerolinea } from './aerolineas.entity';
 
 @Entity()
@@ -39,7 +39,7 @@ export class Empleado {
     @Column("integer")
     salario: number;
 
-    @OneToOne(() => Aerolinea)
+    @ManyToOne(() => Aerolinea)
     @JoinColumn({ name: "aerolinea_id"})
     aerolinea: Aerolinea
 };
