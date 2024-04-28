@@ -15,6 +15,9 @@ import { CapacitacionesModule } from './application/features/capacitaciones/capa
 import { Capacitacion } from './domain/entities/capacitaciones.entity';
 import { Historialaboral } from './domain/entities/historialaboral.entity';
 import { HistorialaboralModule } from './application/features/historialaboral/historialaboral.module';
+import { UsuariosModule } from './application/features/usuarios/usuarios.module';
+import { Usuario } from './domain/entities/usuario.entity';
+import { AuthModule } from './application/features/auth/auth.module';
 
 @Module({
   imports: [
@@ -26,9 +29,9 @@ import { HistorialaboralModule } from './application/features/historialaboral/hi
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [Aerolinea, Puesto, Empleado, Ausencia, Capacitacion, Historialaboral],
+    entities: [Aerolinea, Puesto, Empleado, Ausencia, Capacitacion, Historialaboral, Usuario],
     synchronize: true,
-  }), AerolineasModule, PuestosModule, EmpleadosModule, AusenciasModule, CapacitacionesModule,HistorialaboralModule],
+  }), AerolineasModule, PuestosModule, EmpleadosModule, AusenciasModule, CapacitacionesModule,HistorialaboralModule, UsuariosModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
