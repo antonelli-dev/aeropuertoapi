@@ -6,10 +6,10 @@ export class Capacitacion {
     @PrimaryGeneratedColumn("increment")
     id: number;
 
-    @Column("varchar", { length: 30 })
+    @Column("varchar", { length: 100 })
     nombre: string;
 
-    @Column("varchar", { length: 30 })
+    @Column("varchar", { length: 100 })
     descripcion: string;
 
     @Column("date")
