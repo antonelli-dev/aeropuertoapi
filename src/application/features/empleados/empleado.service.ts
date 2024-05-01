@@ -15,7 +15,7 @@ export class EmpleadosService {
     ) {}
 
     async getAll(): Promise<Empleado[]> {
-        return await this._empleadosRepository.find();
+        return await this._empleadosRepository.find({relations: ["aerolinea","puesto"]});
     }
 
     async create(dto: CrearEmpleadoDto):  Promise<Empleado> {
