@@ -12,6 +12,11 @@ export class CapacitacionesController {
     return this.capacitacionesService.create(createCapacitacioneDto);
   }
 
+  // @Get()
+  // findbyArray(){
+  //   return this.capacitacionesService.findbyArray();
+  // }
+
   @Get()
   findAll() {
     return this.capacitacionesService.findAll();

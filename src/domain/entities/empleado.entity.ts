@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Aerolinea } from './aerolineas.entity';
 import { Puesto } from './puesto.entity';
+import { Capacitacion } from './capacitaciones.entity';
 
 @Entity()
 export class Empleado {
@@ -39,6 +40,10 @@ export class Empleado {
 
     @Column("integer")
     salario: number;
+
+    @ManyToMany(() => Capacitacion)
+    @JoinTable()
+    capacitaciones: Capacitacion[];
 
     @ManyToOne(() => Aerolinea)
     @JoinColumn({ name: "aerolinea_id"})

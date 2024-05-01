@@ -13,7 +13,7 @@ export class HistorialaboralService {
 ) {}
 
 async getAll(): Promise<Historialaboral[]> {
-    return await this._historialaboralRepository.find();
+    return await this._historialaboralRepository.find({ relations:['puesto', 'empleado']});
 }
 
 async create(dto: CreateHistorialaboralDto):  Promise<Historialaboral> {

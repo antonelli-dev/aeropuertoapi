@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCapacitacioneDto } from './dto/create-capacitacione.dto';
 import { UpdateCapacitacioneDto } from './dto/update-capacitacione.dto';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { Capacitacion } from 'src/domain/entities/capacitaciones.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -26,6 +26,12 @@ export class CapacitacionesService {
     return this._capacitacionesRepository.findOneBy({
       id: id
     })
+  }
+
+  findbyArray(capacitacionesArray: number[]) {
+    return this._capacitacionesRepository.find({where: {
+      id : In(capacitacionesArray)
+    }})
   }
 
   update(id: number, updateCapacitacioneDto: UpdateCapacitacioneDto) {
