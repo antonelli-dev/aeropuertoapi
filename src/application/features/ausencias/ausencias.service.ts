@@ -20,7 +20,7 @@ export class AusenciasService {
   }
 
   async findAll() {
-    return this._ausenciasRepository.find();
+    return this._ausenciasRepository.find({relations: ["empleado"]});
   }
 
   async findOne(id: number) {

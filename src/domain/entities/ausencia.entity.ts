@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Empleado } from "./empleado.entity";
 
 @Entity("ausencias")
 export class Ausencia {
@@ -7,6 +8,12 @@ export class Ausencia {
 
     @Column("integer")
     id_empleado: number;
+
+
+    @ManyToOne(() => Empleado)
+    @JoinColumn({name: "id_empleado"})
+    empleado: Empleado;
+
 
     @Column("varchar")
     tipo: string;

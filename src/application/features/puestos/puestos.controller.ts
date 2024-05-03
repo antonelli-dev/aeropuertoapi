@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { PuestosService } from './puestos.service';
 import { CrearPuestoDto } from './dtos/crear-puesto.dto';
 import { ModificarPuestoDto } from './dtos/modificar-puesto.dto';
@@ -26,7 +26,7 @@ export class PuestosController {
     }
 
     @Delete(":id")
-    async remove(id: number) {
+    async remove(@Param('id') id: number) {
         return await this._puestosService.delete(id);
     }
 }
