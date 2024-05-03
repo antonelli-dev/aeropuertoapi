@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { AusenciasService } from './ausencias.service';
 import { CreateAusenciaDto } from './dto/create-ausencia.dto';
 import { UpdateAusenciaDto } from './dto/update-ausencia.dto';
@@ -22,7 +22,7 @@ export class AusenciasController {
     return await this.ausenciasService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   async update(@Param('id') id: string, @Body() updateAusenciaDto: UpdateAusenciaDto) {
     return await this.ausenciasService.update(+id, updateAusenciaDto);
   }

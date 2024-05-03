@@ -5,7 +5,7 @@ export class Ausencia {
     @PrimaryGeneratedColumn("increment")
     id: number;
 
-    @Column("int")
+    @Column("integer")
     id_empleado: number;
 
     @Column("varchar")

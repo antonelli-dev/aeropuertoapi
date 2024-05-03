@@ -8,32 +8,28 @@ export class CapacitacionesController {
   constructor(private readonly capacitacionesService: CapacitacionesService) {}
 
   @Post()
-  create(@Body() createCapacitacioneDto: CreateCapacitacioneDto) {
-    return this.capacitacionesService.create(createCapacitacioneDto);
+  async create(@Body() createCapacitacioneDto: CreateCapacitacioneDto) {
+    return await this.capacitacionesService.create(createCapacitacioneDto);
   }
 
-  // @Get()
-  // findbyArray(){
-  //   return this.capacitacionesService.findbyArray();
-  // }
 
   @Get()
-  findAll() {
-    return this.capacitacionesService.findAll();
+  async findAll() {
+    return await this.capacitacionesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.capacitacionesService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.capacitacionesService.findOne(+id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCapacitacioneDto: UpdateCapacitacioneDto) {
-    return this.capacitacionesService.update(+id, updateCapacitacioneDto);
+  async update(@Param('id') id: string, @Body() updateCapacitacioneDto: UpdateCapacitacioneDto) {
+    return await this.capacitacionesService.update(+id, updateCapacitacioneDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.capacitacionesService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.capacitacionesService.remove(+id);
   }
 }
