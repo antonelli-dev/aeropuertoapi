@@ -36,8 +36,6 @@ export class EmpleadosService {
         empleado.salario = dto.salario;
         empleado.aerolinea_id = dto.aerolinea_id;
 
-        const capacitacionesCompletas = await this._capacitacionRepository.find();
-
         const capacitaciones: Capacitacion[] = await  this._capacitacionRepository.find({where: {
             id : In(dto.capacitaciones)
           }})
@@ -48,9 +46,24 @@ export class EmpleadosService {
     }
 
     async modify(id: number, dto: ModificarEmpleadoDto):  Promise<Empleado> {
-        const empleado: Empleado = dto as Empleado;
-        await this._empleadosRepository.update(dto.id, empleado);
-
+        const empleado= await this._empleadosRepository.findOne({
+            where: 
+             {id : (dto.id)}
+            ,relations:["aerolinea","puesto","capacitaciones"]});
+        // empleado.id = dto.id;
+        empleado.nombres = dto.nombres;
+        empleado.apellidos = dto.apellidos;
+        empleado.fecha_nacimiento = dto.fecha_nacimiento;
+        empleado.genero = dto.genero;
+        empleado.direccion = dto.direccion;
+        empleado.telefono = dto.telefono;
+        empleado.correo_electronico = dto.correo_electronico;
+        empleado.puesto_id = dto.puesto_id;
+        empleado.fecha_contratacion =dto.fecha_contratacion;
+        empleado.salario = dto.salario;
+        empleado.aerolinea_id = dto.aerolinea_id;
+        empleado.capacitaciones = dto.capacitaciones;
+        await this._empleadosRepository.save(empleado);
         return empleado;
     }
 

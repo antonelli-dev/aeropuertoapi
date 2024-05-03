@@ -1,3 +1,5 @@
+import { Capacitacion } from "src/domain/entities/capacitaciones.entity";
+
 export class ModificarEmpleadoDto {
     id: number;
     nombres: string;
@@ -8,6 +10,7 @@ export class ModificarEmpleadoDto {
     telefono: string;
     correo_electronico: string;
     aerolinea_id: number;
+    capacitaciones: Capacitacion[];
     puesto_id: number;
     fecha_contratacion: Date;
     salario: number;

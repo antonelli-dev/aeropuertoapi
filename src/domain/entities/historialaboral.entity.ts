@@ -3,7 +3,7 @@ import { Empleado } from "./empleado.entity";
 import { JoinColumn } from "typeorm/decorator/relations/JoinColumn";
 import { Column } from "typeorm/decorator/columns/Column";
 import { Puesto } from "./puesto.entity";
-import { Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class Historialaboral {
     @PrimaryGeneratedColumn("increment") 
@@ -16,11 +16,11 @@ export class Historialaboral {
     id_de_puesto: number;
 
 
-    @OneToOne(() => Empleado)
+    @ManyToOne(() => Empleado)
     @JoinColumn({name:"id_empleado"})
     empleado: Empleado ;
 
-    @OneToOne(() => Puesto)
+    @ManyToOne(() => Puesto)
     @JoinColumn({name:"id_de_puesto"})
     puesto: Puesto;
 }
